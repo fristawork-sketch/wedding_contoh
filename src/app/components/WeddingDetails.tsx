@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 
 const details = [
-  { label: "Date", value: "Saturday, October 18", sub: "Two thousand and twenty five" },
+  { label: "Date", value: "Sabtu, 11 Juli", sub: "2026" },
   { label: "Ceremony", value: "3:00 in the afternoon", sub: "Chapel of the Golden Fields" },
   { label: "Reception", value: "6:00 in the evening", sub: "The Orchard Garden, East Wing" },
   { label: "Dress Code", value: "Garden Romantique", sub: "Cream, sage, dusty rose & earth tones" },
@@ -45,9 +45,9 @@ export function WeddingDetails() {
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4" style={{ background: "#D0C3AD" }}>
               <span style={{ fontFamily: "'Dancing Script', cursive", color: "#9C8B6E", fontSize: "1rem" }}>together forever</span>
             </div>
-            <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(4rem, 12vw, 7rem)", color: "#2C2318", fontWeight: 400, lineHeight: 1, letterSpacing: "0.05em" }}>18</p>
-            <p style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.5rem", color: "#5C3D2E", letterSpacing: "0.3em" }}>OCTOBER</p>
-            <p style={{ fontFamily: "'Lato', sans-serif", fontSize: "0.75rem", color: "#9C8B6E", letterSpacing: "0.25em", marginTop: "0.5rem" }}>MMX X V</p>
+            <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(4rem, 12vw, 7rem)", color: "#2C2318", fontWeight: 400, lineHeight: 1, letterSpacing: "0.05em" }}>11</p>
+            <p style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.5rem", color: "#5C3D2E", letterSpacing: "0.3em" }}>JULI</p>
+            <p style={{ fontFamily: "'Lato', sans-serif", fontSize: "0.75rem", color: "#9C8B6E", letterSpacing: "0.25em", marginTop: "0.5rem" }}>2026</p>
           </div>
         </motion.div>
 

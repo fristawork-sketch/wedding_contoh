@@ -2,18 +2,19 @@ import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
 
+import fotoAlda from "../../assets/alda.jpeg";
 const people = [
   {
-    name: "Elara Voss",
+    name: "ALDA",
     role: "The Bride",
     description: "A reader of quiet mornings, a keeper of pressed flowers and handwritten lists. She loves rain on windows, old bookshops, and the way a good sentence makes you stop breathing for a moment.",
     quote: "I didn't know I was waiting for you until you arrived.",
-    photo: "https://images.unsplash.com/photo-1654977982201-a241a2c8c092?w=600&h=800&fit=crop&auto=format",
+    photo: fotoAlda,
     rotate: "-2deg",
     tag: "the bride",
   },
   {
-    name: "Sebastian Holt",
+    name: "BARA",
     role: "The Groom",
     description: "A wanderer who finally found his direction. He collects maps of cities he hasn't visited yet, makes the best tea at 2am, and says 'I love you' in the way he remembers exactly how you take your coffee.",
     quote: "Home was never a place — until I found her.",

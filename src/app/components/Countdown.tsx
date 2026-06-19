@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
-const WEDDING_DATE = new Date("2025-10-18T15:00:00");
+const WEDDING_DATE = new Date("2026-07-10T15:00:00");
 
 function getTimeLeft() {
   const now = new Date();

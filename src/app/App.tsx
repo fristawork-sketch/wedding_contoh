@@ -179,16 +179,16 @@ export default function App() {
             >
               <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")" }} />
               <div className="relative">
-                <p style={{ fontFamily: "'Dancing Script', cursive", fontSize: "3rem", color: "#9C8B6E" }}>Elara &amp; Sebastian</p>
+                <p style={{ fontFamily: "'Dancing Script', cursive", fontSize: "3rem", color: "#9C8B6E" }}>ALDA &amp; BARA</p>
                 <p className="mt-2" style={{ fontFamily: "'EB Garamond', serif", fontSize: "1rem", color: "#7A6152", fontStyle: "italic" }}>
-                  October 18, 2025 · Chapel of the Golden Fields · Wiltshire
+                  11 Juli  2026 
                 </p>
                 <div className="w-12 h-px mx-auto my-6" style={{ background: "#9C8B6E" }} />
                 <p style={{ fontFamily: "'EB Garamond', serif", fontSize: "0.9rem", color: "#5C3D2E", fontStyle: "italic" }}>
                   "And I choose you. In the quiet and in the chaos. In the ordinary and the extraordinary. Every day, I choose you."
                 </p>
                 <p className="mt-8 text-xs tracking-widest uppercase" style={{ fontFamily: "'Lato', sans-serif", color: "#3C2D20", letterSpacing: "0.2em" }}>
-                  Made with love · 2025
+                  Made with love · 2026
                 </p>
               </div>
             </footer>
