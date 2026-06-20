@@ -34,57 +34,55 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
         }}
       />
 
-     {/* 🟢 LEFT IMAGE */}
-<motion.img
-  src={kiri}
-  alt="foto kiri"
+{/* LEFT */}
+<motion.div
   initial={{ opacity: 0, x: -80 }}
   animate={{ opacity: 0.9, x: 0 }}
   transition={{ delay: 0.6, duration: 1.2 }}
   className="
-    hidden md:block
-    absolute 
-    left-[-3%]
+    hidden md:flex
+    absolute
+    left-0
     bottom-0
-    h-[85vh] lg:h-[100vh]
-    w-auto
-    object-contain
-    pointer-events-none
+    items-end
+    h-[100vh]
+    w-[30vw]
     z-10
+    pointer-events-none
   "
-  style={{
-    maskImage:
-      "linear-gradient(to right, transparent, black 12%, black 100%)",
-    WebkitMaskImage:
-      "linear-gradient(to right, transparent, black 12%, black 100%)",
-  }}
-/>
+>
+  <img
+    src={kiri}
+    alt="foto kiri"
+    className="h-full w-auto object-contain"
 
-{/* 🟢 RIGHT IMAGE */}
-<motion.img
-  src={kanan}
-  alt="foto kanan"
+  />
+</motion.div>
+
+{/* RIGHT */}
+<motion.div
   initial={{ opacity: 0, x: 80 }}
   animate={{ opacity: 0.9, x: 0 }}
   transition={{ delay: 0.6, duration: 1.2 }}
   className="
-    hidden md:block
-    absolute 
-    right-[-3%]
+    hidden md:flex
+    absolute
+    right-0
     bottom-0
-    h-[85vh] lg:h-[100vh]
-    w-auto
-    object-contain
-    pointer-events-none
+    items-end
+    justify-end
+    h-[100vh]
+    w-[30vw]
     z-10
+    pointer-events-none
   "
-  style={{
-    maskImage:
-      "linear-gradient(to left, transparent, black 12%, black 100%)",
-    WebkitMaskImage:
-      "linear-gradient(to left, transparent, black 12%, black 100%)",
-  }}
-/>
+>
+  <img
+    src={kanan}
+    alt="foto kanan"
+    className="h-full w-auto object-contain"
+  />
+</motion.div>
 
       {/* 🎞️ Film strip atas */}
       <div className="absolute top-0 left-0 right-0 h-8 flex gap-0 opacity-20">
