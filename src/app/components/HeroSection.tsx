@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 
+declare module "*.png";
+
 // 🟢 IMAGE JPEG ASSETS
 import kiri from "../../assets/kiri.png";
 import kanan from "../../assets/kanan.png";
