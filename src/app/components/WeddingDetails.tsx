@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
 
 const details = [
-  { label: "Date", value: "Sabtu, 11 Juli", sub: "2026" },
-  { label: "Ceremony", value: "3:00 in the afternoon", sub: "Chapel of the Golden Fields" },
-  { label: "Reception", value: "6:00 in the evening", sub: "The Orchard Garden, East Wing" },
-  { label: "Dress Code", value: "Garden Romantique", sub: "Cream, sage, dusty rose & earth tones" },
+  { label: "Resepsi", value: "Sabtu, 11 Juli", sub: "2026" },
+  { label: "Pemenuhan Ukum Adat", value: "Jum'at, 10 Juli", sub: "Pukul 09:00 WIB",sub2: "Rumah Bapak Erlan, Desa Sungai Tuat Rt.03" },
+  { label: "Gereja", value: "Sabtu, 11 Juli", sub: "The Orchard Garden, East Wing" },
+  { label: "Resepsi", value: "Garden Romantique", sub: "Cream, sage, dusty rose & earth tones" },
 ];
 
 export function WeddingDetails() {
@@ -66,6 +66,8 @@ export function WeddingDetails() {
               <p className="text-xs tracking-widest uppercase mb-2" style={{ fontFamily: "'Lato', sans-serif", color: "#9C8B6E" }}>{d.label}</p>
               <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.3rem", color: "#2C2318", fontStyle: "italic" }}>{d.value}</p>
               <p className="mt-1 text-sm" style={{ fontFamily: "'EB Garamond', serif", color: "#7A6152" }}>{d.sub}</p>
+              <p className="mt-1 text-sm" style={{ fontFamily: "'EB Garamond', serif", color: "#7A6152" }}>{d.sub2}</p>
+
             </motion.div>
           ))}
         </div>

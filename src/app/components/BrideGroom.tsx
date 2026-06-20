@@ -7,8 +7,9 @@ const people = [
   {
     name: "Rulia Alda Firadila",
     role: "The Bride",
-    description: "A reader of quiet mornings, a keeper of pressed flowers and handwritten lists. She loves rain on windows, old bookshops, and the way a good sentence makes you stop breathing for a moment.",
-    quote: "I didn't know I was waiting for you until you arrived.",
+    description: "Anak Pertama Dari ",
+    description2:"Bpk Rubi Setiawan & Ibu Liana.",
+    quote: "Bpk Rubi Setiawan & Ibu Liana.",
     photo: fotoAlda,
     rotate: "-2deg",
     tag: "the bride",
@@ -16,7 +17,8 @@ const people = [
   {
     name: "BARA",
     role: "The Groom",
-    description: "A wanderer who finally found his direction. He collects maps of cities he hasn't visited yet, makes the best tea at 2am, and says 'I love you' in the way he remembers exactly how you take your coffee.",
+    description: "Anak Kedua Dari:",
+    description2: "Bpk .. & ...",
     quote: "Home was never a place — until I found her.",
     photo: "https://images.unsplash.com/photo-1681176092314-aff3e74a41bb?w=600&h=800&fit=crop&auto=format",
     rotate: "2deg",
@@ -90,6 +92,12 @@ export function BrideGroom() {
                 style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.05rem", color: "#5C3D2E", lineHeight: 1.85 }}
               >
                 {person.description}
+              </p>
+                            <p
+                className="text-center max-w-xs"
+                style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.05rem", color: "#5C3D2E", lineHeight: 1.85 }}
+              >
+                {person.description2}
               </p>
               <blockquote
                 className="mt-6 text-center italic"
