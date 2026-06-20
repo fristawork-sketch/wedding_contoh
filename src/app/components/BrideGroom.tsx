@@ -5,7 +5,7 @@ import { useRef } from "react";
 import fotoAlda from "../../assets/alda.jpeg";
 const people = [
   {
-    name: "ALDA",
+    name: "Rulia Alda Firadila",
     role: "The Bride",
     description: "A reader of quiet mornings, a keeper of pressed flowers and handwritten lists. She loves rain on windows, old bookshops, and the way a good sentence makes you stop breathing for a moment.",
     quote: "I didn't know I was waiting for you until you arrived.",
