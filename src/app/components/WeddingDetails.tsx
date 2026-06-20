@@ -80,8 +80,8 @@ export function WeddingDetails() {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          Chapel of the Golden Fields, Rosemere Estate<br />
-          <span style={{ fontSize: "1rem", fontFamily: "'EB Garamond', serif", fontStyle: "italic" }}>12 Halcyon Road, Wiltshire, England</span>
+          Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia.<br />
+          <span style={{ fontSize: "1rem", fontFamily: "'EB Garamond', serif", fontStyle: "italic" }}>Matius 19:6</span>
         </motion.p>
       </div>
     </section>
