@@ -32,10 +32,10 @@ export function DigitalGifts() {
         >
           <p className="text-xs tracking-[0.4em] uppercase mb-3" style={{ fontFamily: "'Lato', sans-serif", color: "#7A6152" }}>if you wish to give</p>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 6vw, 4rem)", color: "#2C2318", fontWeight: 400 }}>
-            Digital Gifts
+            Tanda Kasih
           </h2>
-          <p className="mt-4 max-w-xl mx-auto" style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.05rem", color: "#7A6152", fontStyle: "italic", lineHeight: 1.85 }}>
-            Your presence is the greatest gift. But if you'd like to contribute something, here are a few small dreams we're building toward.
+          <p className="mt-4 max-w-xl mx-auto" style={{ fontFamily: "'Lato', sans-serif", fontSize: "1.05rem", color: "#7A6152", fontStyle: "roman", lineHeight: 1.85 }}>
+           Apabila anda ingin memberikan hadiah kepada kedua mempelai dapat diberikan melalui opsi-opsi dibawah ini. Terima Kasih
           </p>
           <div className="w-16 h-px mx-auto mt-6" style={{ background: "#9C8B6E" }} />
         </motion.div>
@@ -92,19 +92,6 @@ export function DigitalGifts() {
           })}
         </div>
 
-        <motion.div
-          className="text-center mt-14 flex items-center justify-center gap-3"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        >
-          <Heart size={14} style={{ color: "#9C8B6E" }} />
-          <p style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.05rem", color: "#7A6152", fontStyle: "italic" }}>
-            No gift is too small — your love and presence is more than enough.
-          </p>
-          <Heart size={14} style={{ color: "#9C8B6E" }} />
-        </motion.div>
       </div>
     </section>
   );

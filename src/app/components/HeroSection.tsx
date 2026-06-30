@@ -6,6 +6,7 @@ declare module "*.png";
 // 🟢 IMAGE JPEG ASSETS
 import kiri from "../../assets/kiri.png";
 import kanan from "../../assets/kanan.png";
+import bg from "../../assets/bg.png";
 
 export function HeroSection({ onOpen }: { onOpen: () => void }) {
   const [flicker, setFlicker] = useState(false);
@@ -23,6 +24,14 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
           "linear-gradient(160deg, #F0E9D8 0%, #E8DCC8 40%, #DDD0BA 100%)",
       }}
     >
+        {/* Background Image */}
+  <div className="absolute inset-0 flex items-end justify-center pointer-events-none z-0">
+  <img
+    src={bg}
+    alt="Background"
+    className="w-[850px] h-[750px] object-contain opacity-15 translate-y-10"
+  />
+</div>  
       {/* 🎞️ Film grain */}
       <div
         className="absolute inset-0 pointer-events-none z-10"

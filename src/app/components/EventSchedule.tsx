@@ -1,14 +1,9 @@
 import { motion } from "motion/react";
 
 const events = [
-  { time: "2:00 pm", title: "Guests Arrive", note: "The garden gates open. Find your seat, meet old friends, and let the afternoon wrap around you like a warm letter." },
-  { time: "3:00 pm", title: "The Ceremony", note: "We say our vows beneath the old oak tree, in front of everyone we love. Bring tissues — we certainly will need them." },
-  { time: "4:15 pm", title: "Golden Hour Portraits", note: "While we steal a few quiet minutes together, enjoy champagne and canapés in the orchard. The light is always best at this hour." },
-  { time: "5:30 pm", title: "Cocktail Hour", note: "A jazz trio plays softly. The evening air smells of wisteria and possibility. Toast with us." },
-  { time: "6:00 pm", title: "Reception Dinner", note: "Long tables, candlelight, and a menu that tastes like Sunday mornings. Stories will be told. Wine will be poured generously." },
-  { time: "8:00 pm", title: "The First Dance", note: "We chose a song that made us both cry the first time we heard it. You'll understand why when it plays." },
-  { time: "8:30 pm", title: "Open Dance Floor", note: "The night is young and so is our love. Dance with us until your feet beg you to stop — and then dance a little more." },
-  { time: "11:30 pm", title: "Farewell & Wishes", note: "The last song, a long hug, and a lantern released into the dark sky — carrying every good wish skyward." },
+  { time: "10 Juli 2026",title2: "08:30 WIB", title: "Pemenuhan Hukum Adat", note: "Rumah Bapak Erlan, Desa Sungai Tuat RT.03" }, 
+  { time: "11 Juli 2026",title2: "08:00 WIB", title: "Nikah Gereja", note: "Gereja Khatolik St.Maria STTB, Tanjung Beringin"},
+  { time: "11 Juli 2026",title2: "08:00 WIB", title: "Resep Gereja", note: "Gereja Khatolik St.Maria STTB, Tanjung Beringin"},
 ];
 
 export function EventSchedule() {
@@ -50,6 +45,7 @@ export function EventSchedule() {
               {/* Time column */}
               <div className="w-20 flex-shrink-0 pt-1 text-right">
                 <span style={{ fontFamily: "'EB Garamond', serif", fontSize: "0.95rem", color: "#9C8B6E", fontStyle: "italic" }}>{event.time}</span>
+               <p style={{fontFamily: "'Poppins', sans-serif",fontSize: "0.75rem",color: "#A89A84", marginTop: "4px",}}>{event.title2}</p>
               </div>
 
               {/* Dot connector */}

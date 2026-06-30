@@ -12,6 +12,9 @@ import { RSVPForm } from "./components/RSVPForm";
 import { GuestWishes } from "./components/GuestWishes";
 import { DigitalGifts } from "./components/DigitalGifts";
 import { MusicPlayer } from "./components/music"; // ✅ MUSIC IMPORT
+import { Heart } from "lucide-react";
+
+
 
 const navItems = [
   { label: "Our Story", href: "#story" },
@@ -134,9 +137,21 @@ export default function App() {
             <GuestWishes />
             <DigitalGifts />
 
-            <footer className="py-16 text-center" style={{ background: "#2C2318" }}>
-              <p style={{ color: "#9C8B6E" }}>ALDA & BARA</p>
-            </footer>
+
+<footer
+  className="py-16 text-center flex items-center justify-center gap-2"
+  style={{ background: "#2C2318" }}
+>
+  <p style={{ color: "#9C8B6E" }}>ALDA</p>
+
+  <Heart
+    size={16}
+    fill="#e45959"
+    stroke="#000000"
+  />
+
+  <p style={{ color: "#9C8B6E" }}>BARA</p>
+</footer>
           </motion.div>
         )}
       </AnimatePresence>
