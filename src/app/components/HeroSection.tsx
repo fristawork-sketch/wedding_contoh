@@ -24,14 +24,18 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
           "linear-gradient(160deg, #F0E9D8 0%, #E8DCC8 40%, #DDD0BA 100%)",
       }}
     >
-        {/* Background Image */}
-  <div className="absolute inset-0 flex items-end justify-center pointer-events-none z-0">
-  <img
-    src={bg}
-    alt="Background"
-    className="w-[850px] h-[750px] object-contain opacity-15 translate-y-10"
-  />
-</div>  
+      {/* Background Image */}
+      <div className="absolute inset-0 flex items-end justify-center pointer-events-none z-0">
+        <motion.img
+          src={bg}
+          alt="Background"
+          className="w-[70vw] max-w-[850px] h-auto object-contain opacity-15 translate-y-10"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 0.15, scale: 1 }}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+        />
+      </div>
+
       {/* 🎞️ Film grain */}
       <div
         className="absolute inset-0 pointer-events-none z-10"
@@ -43,65 +47,66 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
         }}
       />
 
-{/* LEFT */}
-<motion.div
-  initial={{ opacity: 0, x: -80 }}
-  animate={{ opacity: 0.9, x: 0 }}
-  transition={{ delay: 0.6, duration: 1.2 }}
-  className="
-    hidden md:flex
-    absolute
-    left-0
-    bottom-0
-    items-end
-    h-[100vh]
-    w-[30vw]
-    z-10
-    pointer-events-none
-  "
->
-  <img
-    src={kiri}
-    alt="foto kiri"
-    className="h-full w-auto object-contain"
+      {/* LEFT — kini tampil & menyesuaikan di semua ukuran layar */}
+      <motion.div
+        initial={{ opacity: 0, x: -60 }}
+        animate={{ opacity: 0.9, x: 0 }}
+        whileHover={{ opacity: 1, scale: 1.03 }}
+        transition={{ delay: 0.6, duration: 1.2 }}
+        className="
+          flex
+          absolute
+          left-0
+          bottom-0
+          items-end
+          h-[38vh] sm:h-[55vh] md:h-[80vh] lg:h-[100vh]
+          w-[26vw] sm:w-[24vw] md:w-[26vw] lg:w-[30vw]
+          z-10
+          pointer-events-none
+        "
+      >
+        <img
+          src={kiri}
+          alt="foto kiri"
+          className="h-full w-auto max-w-full object-contain"
+        />
+      </motion.div>
 
-  />
-</motion.div>
-
-{/* RIGHT */}
-<motion.div
-  initial={{ opacity: 0, x: 80 }}
-  animate={{ opacity: 0.9, x: 0 }}
-  transition={{ delay: 0.6, duration: 1.2 }}
-  className="
-    hidden md:flex
-    absolute
-    right-0
-    bottom-0
-    items-end
-    justify-end
-    h-[100vh]
-    w-[30vw]
-    z-10
-    pointer-events-none
-  "
->
-  <img
-    src={kanan}
-    alt="foto kanan"
-    className="h-full w-auto object-contain"
-  />
-</motion.div>
+      {/* RIGHT — kini tampil & menyesuaikan di semua ukuran layar */}
+      <motion.div
+        initial={{ opacity: 0, x: 60 }}
+        animate={{ opacity: 0.9, x: 0 }}
+        whileHover={{ opacity: 1, scale: 1.03 }}
+        transition={{ delay: 0.6, duration: 1.2 }}
+        className="
+          flex
+          absolute
+          right-0
+          bottom-0
+          items-end
+          justify-end
+          h-[38vh] sm:h-[55vh] md:h-[80vh] lg:h-[100vh]
+          w-[26vw] sm:w-[24vw] md:w-[26vw] lg:w-[30vw]
+          z-10
+          pointer-events-none
+        "
+      >
+        <img
+          src={kanan}
+          alt="foto kanan"
+          className="h-full w-auto max-w-full object-contain"
+        />
+      </motion.div>
 
       {/* 🎞️ Film strip atas */}
-      <div className="absolute top-0 left-0 right-0 h-8 flex gap-0 opacity-20">
+      <div className="absolute top-0 left-0 right-0 h-6 sm:h-8 flex gap-0 opacity-20">
         {Array.from({ length: 30 }).map((_, i) => (
           <div
             key={i}
             className="h-full flex-1 border-r border-foreground/30 flex flex-col justify-between py-1"
           >
-            <div className="w-2 h-2 bg-foreground/40 mx-auto rounded-sm" />
-            <div className="w-2 h-2 bg-foreground/40 mx-auto rounded-sm" />
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-foreground/40 mx-auto rounded-sm" />
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-foreground/40 mx-auto rounded-sm" />
           </div>
         ))}
       </div>
@@ -129,9 +134,9 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
       )}
 
       {/* 💍 MAIN CONTENT */}
-      <div className="relative z-20 flex flex-col items-center text-center px-6 max-w-2xl">
+      <div className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 max-w-2xl w-full">
         <motion.p
-          className="text-xs tracking-[0.35em] uppercase mb-8 opacity-60"
+          className="text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.35em] uppercase mb-6 sm:mb-8 opacity-60"
           style={{ fontFamily: "'Lato', sans-serif", color: "#7A6152" }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 0.6, y: 0 }}
@@ -145,41 +150,45 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <h1
+          <motion.h1
+            whileHover={{ scale: 1.04 }}
+            transition={{ type: "spring", stiffness: 200 }}
             style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: "clamp(3.5rem, 10vw, 7rem)",
+              fontSize: "clamp(2.4rem, 12vw, 7rem)",
               color: "#2C2318",
               fontWeight: 400,
             }}
           >
             ALDA
-          </h1>
+          </motion.h1>
 
           <p
             style={{
               fontFamily: "'Dancing Script', cursive",
-              fontSize: "2rem",
+              fontSize: "clamp(1.3rem, 5vw, 2rem)",
               color: "#9C8B6E",
             }}
           >
             &
           </p>
 
-          <h1
+          <motion.h1
+            whileHover={{ scale: 1.04 }}
+            transition={{ type: "spring", stiffness: 200 }}
             style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: "clamp(3.5rem, 10vw, 7rem)",
+              fontSize: "clamp(2.4rem, 12vw, 7rem)",
               color: "#2C2318",
               fontWeight: 400,
             }}
           >
             BARA
-          </h1>
+          </motion.h1>
         </motion.div>
 
         <motion.div
-          className="w-24 h-px my-8"
+          className="w-16 sm:w-24 h-px my-6 sm:my-8"
           style={{
             background:
               "linear-gradient(90deg, transparent, #9C8B6E, transparent)",
@@ -190,12 +199,16 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
         />
 
         <motion.p
+          className="text-sm sm:text-base px-2"
           style={{
             fontFamily: "'EB Garamond', serif",
             fontStyle: "italic",
             color: "#5C3D2E",
             lineHeight: 1.9,
           }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4 }}
         >
           "Two imperfect people who chose to stay,
           <br />
@@ -203,22 +216,29 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
         </motion.p>
 
         <motion.p
-          className="mt-4 text-sm uppercase tracking-widest"
+          className="mt-4 text-xs sm:text-sm uppercase tracking-widest"
           style={{ color: "#7A6152" }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.6 }}
         >
           11 Juli · 2026
         </motion.p>
 
         <motion.button
           onClick={onOpen}
-          className="mt-12 px-10 py-4 border"
+          className="mt-10 sm:mt-12 px-8 sm:px-10 py-3 sm:py-4 border text-sm sm:text-base"
           style={{
             borderColor: "#9C8B6E",
             color: "#5C3D2E",
             fontFamily: "'EB Garamond', serif",
             letterSpacing: "0.15em",
           }}
-          whileHover={{ scale: 1.05 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8 }}
+          whileHover={{ scale: 1.05, borderColor: "#5C3D2E" }}
+          whileTap={{ scale: 0.97 }}
         >
           Buka Undangan
         </motion.button>
