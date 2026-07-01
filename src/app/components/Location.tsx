@@ -79,13 +79,13 @@ export function Location() {
               </div>
 
               <a
-                href="https://www.google.com/maps?q=Trowbridge+Wiltshire"
+                href="https://www.google.com/maps/place/Zea+Fam's/@-1.7857495,111.0918403,19z/data=!4m15!1m8!3m7!1s0x2e05d66fa549cb67:0xc3c9c224f6656a12!2sSungai+Tuat,+Kec.+Lamandau,+Kabupaten+Lamandau,+Kalimantan+Tengah!3b1!8m2!3d-1.7915792!4d111.0579632!16s%2Fg%2F1hc0h80k9!3m5!1s0x2e05d7ce1269b433:0x153657259504cc58!8m2!3d-1.7858192!4d111.0917611!16s%2Fg%2F11y687k0nf?entry=ttu&g_ep=EgoyMDI2MDYyOC4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-10 inline-block px-8 py-3 border text-sm tracking-widest uppercase"
                 style={{ borderColor: "#9C8B6E", color: "#5C3D2E", fontFamily: "'Lato', sans-serif", letterSpacing: "0.2em" }}
               >
-                Open in Maps
+                Lokasi Pemenuhan Hukum Adat
               </a>
             </div>
           </div>
