@@ -46,8 +46,26 @@ const LOCATIONS = [
       "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop&auto=format",
   },
 ];
+type Location = {
+  key: string;
+  tabLabel: string;
+  postmarkDate: string;
+  heading: string;
+  subheading: string;
+  address: string;
+  station: string;
+  pinNote: string;
+  mapUrl: string;
+  buttonLabel: string;
+  image: string;
+};
 
-function LocationCard({ loc, index }) {
+type LocationCardProps = {
+  loc: Location;
+  index: number;
+};
+
+function LocationCard({ loc, index }: LocationCardProps) {
   return (
     <motion.div
       className="grid grid-cols-1 lg:grid-cols-2 gap-0 relative"

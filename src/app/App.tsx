@@ -17,12 +17,11 @@ import { Heart } from "lucide-react";
 
 
 const navItems = [
-  { label: "Our Story", href: "#story" },
   { label: "The Two of Us", href: "#us" },
+  { label: "Galeri", href: "#gallery" },
+  { label: "Konfirmasi Kehadiran", href: "#rsvp" },
   { label: "Details", href: "#details" },
-  { label: "Schedule", href: "#schedule" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "RSVP", href: "#rsvp" },
+  { label: "Jadwal", href: "#schedule" },
 ];
 
 function Nav({ visible }: { visible: boolean }) {
@@ -44,7 +43,7 @@ function Nav({ visible }: { visible: boolean }) {
           transition={{ duration: 0.5 }}
         >
           <p style={{ fontFamily: "'Dancing Script', cursive", fontSize: "1.3rem", color: "#5C3D2E" }}>
-            E & S
+            A & B
           </p>
 
           <div className="hidden md:flex items-center gap-8">
@@ -110,7 +109,7 @@ export default function App() {
   return (
     <div className="min-h-screen" style={{ fontFamily: "'EB Garamond', serif" }}>
 
-      {/* 🔥 MUSIC WAJIB DI SINI */}
+      {/* 🔥 MUSIC  */}
       <MusicPlayer />
 
       <FloatingPapers />
@@ -126,16 +125,17 @@ export default function App() {
             transition={{ duration: 1 }}
           >
             <div id="us"><BrideGroom /></div>
+            <div id="gallery"><PhotoGallery /></div>
+            {/*<div id="schedule"><EventSchedule /></div>*/}
             <div id="details">
               <WeddingDetails />
               <Countdown />
             </div>
-            <div id="schedule"><EventSchedule /></div>
             <Location />
-            <div id="gallery"><PhotoGallery /></div>
             <div id="rsvp"><RSVPForm /></div>
             <GuestWishes />
-            <DigitalGifts />
+            <DigitalGifts />.
+
 
 
 <footer

@@ -198,13 +198,15 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
           transition={{ delay: 1.2 }}
         />
 
+        {/* Satu quote tunggal, di tengah */}
         <motion.p
-          className="text-sm sm:text-base px-2"
+          className="text-sm sm:text-base px-2 max-w-md mx-auto"
           style={{
             fontFamily: "'EB Garamond', serif",
             fontStyle: "italic",
             color: "#5C3D2E",
             lineHeight: 1.9,
+            textAlign: "center",
           }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

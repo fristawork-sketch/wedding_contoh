@@ -2,8 +2,8 @@ import { motion } from "motion/react";
 
 const events = [
   { time: "10 Juli 2026",title2: "08:30 WIB", title: "Pemenuhan Hukum Adat", note: "Rumah Bapak Erlan, Desa Sungai Tuat RT.03" }, 
-  { time: "11 Juli 2026",title2: "08:00 WIB", title: "Nikah Gereja", note: "Gereja Khatolik St.Maria STTB, Tanjung Beringin"},
-  { time: "11 Juli 2026",title2: "08:00 WIB", title: "Resep Gereja", note: "Gereja Khatolik St.Maria STTB, Tanjung Beringin"},
+  { time: "11 Juli 2026",title2: "08:00 WIB", title: "Pemberkatan Pernikahan", note: "Gereja Khatolik St.Maria STTB, Desa Tanjung Beringin"},
+  { time: "11 Juli 2026",title2: "11:00 WIB", title: "Resepsi", note: "Rumah Bapak Khote, Desa Sungai Tuat Rt. 03"},
 ];
 
 export function EventSchedule() {
@@ -75,9 +75,6 @@ export function EventSchedule() {
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <p style={{ fontFamily: "'Dancing Script', cursive", fontSize: "1.3rem", color: "#9C8B6E" }}>
-            * please arrive 15 minutes early, with a full heart *
-          </p>
         </motion.div>
       </div>
     </section>

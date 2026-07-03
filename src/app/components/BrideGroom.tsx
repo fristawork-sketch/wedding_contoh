@@ -11,7 +11,7 @@ const people = [
     role: "The Bride",
     description: "Anak Pertama Dari ",
     description2:"Bpk Rubi Setiawan & Ibu Liana.",
-    quote: "Bpk Rubi Setiawan & Ibu Liana.",
+    quote: "Untuk segala versi diri yang pernah ada dan yang akan datang, kami memilih untuk tetap saling menggenggam. Dengan penuh cinta, kami mengundang Anda untuk merayakan awal kisah kami",
     photo: fotoAlda,
     rotate: "-2deg",
     tag: "the bride",
@@ -53,8 +53,7 @@ export function BrideGroom() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9 }}
         >
-          <p className="text-xs tracking-[0.4em] uppercase mb-3" style={{ fontFamily: "'Lato', sans-serif", color: "#9C8B6E" }}>the two of us</p>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 6vw, 4rem)", color: "#2C2318", fontWeight: 400 }}>Bride &amp; Groom</h2>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 6vw, 4rem)", color: "#2C2318", fontWeight: 400 }}>ALDA &amp; BARA</h2>
           <div className="w-16 h-px mx-auto mt-6" style={{ background: "#9C8B6E" }} />
         </motion.div>
 
@@ -111,7 +110,7 @@ export function BrideGroom() {
               </p>
               <blockquote
                 className="mt-6 text-center italic"
-                style={{ fontFamily: "'Dancing Script', cursive", fontSize: "1.25rem", color: "#9C8B6E" }}
+                style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.25rem", color: "#9C8B6E" }}
               >
                 "{person.quote}"
               </blockquote>
