@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 declare module "*.png";
 
 // 🟢 IMAGE JPEG ASSETS
-import kiri from "../../assets/kiri.png";
-import kanan from "../../assets/kanan.png";
+import kiri from "../../assets/kanan.png";
+import kanan from "../../assets/kiri.png";
 
 export function HeroSection({ onOpen }: { onOpen: () => void }) {
   const [flicker, setFlicker] = useState(false);
