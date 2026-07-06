@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "motion/react";
 
 // Ubah 3 acara ini sesuai kebutuhan (label & tanggal masing-masing)
 const EVENTS = [
-  { label: "Pemenuhan Hukum Adat", date: "2026-07-10T09:30:00" },
-  { label: "Pemberkatan Pernikahan", date: "2026-07-11T09:00:00" },
-  { label: "Resepsi", date: "2026-07-11T12:00:00" },
+  { label: "Pemenuhan Hukum Adat", date: "2026-07-10T09:00:00" },
+  { label: "Pemberkatan Nikah", date: "2026-07-11T09:00:00" },
+  { label: "Resepsi", date: "2026-07-11T11:00:00" },
 ];
 
 function getTimeLeft(targetDate: Date) {
@@ -55,7 +55,6 @@ export function Countdown() {
 
   return (
     <section className="py-24 px-6 relative overflow-hidden" style={{ background: "#F0E9D8" }}>
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")" }} />
 
       <div className="max-w-3xl mx-auto text-center relative">
         <motion.div
@@ -64,11 +63,10 @@ export function Countdown() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9 }}
         >
-          <p className="text-xs tracking-[0.4em] uppercase mb-3" style={{ fontFamily: "'Lato', sans-serif", color: "#9C8B6E" }}>counting every heartbeat</p>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 6vw, 4rem)", color: "#2C2318", fontWeight: 400 }}>
             Menuju
           </h2>
-          <p style={{ fontFamily: "'Dancing Script', cursive", fontSize: "2rem", color: "#9C8B6E" }}>{EVENTS[activeIndex].label}</p>
+          <p className="text-xs tracking-[0.2em]  mb-3" style={{ fontFamily: "EB Garamond', serif", color: "#9C8B6E" }}>Klik untuk mengganti acara</p>
           <div className="w-16 h-px mx-auto mt-6 mb-10" style={{ background: "#9C8B6E" }} />
         </motion.div>
 
@@ -138,10 +136,9 @@ export function Countdown() {
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          "Every second that passes is one closer to the moment<br />
-          I get to call you my wife — and that is everything."
+          "Aku menikmati setiap detik, karena semuanya membawaku lebih dekat kepadamu."
         </motion.p>
-        <p style={{ fontFamily: "'Dancing Script', cursive", color: "#9C8B6E", fontSize: "1.1rem", marginTop: "0.5rem" }}>— Sebastian</p>
+        <p style={{ fontFamily: "'Dancing Script', cursive", color: "#9C8B6E", fontSize: "1.1rem", marginTop: "0.5rem" }}> Alda ❤️ Bara</p>
       </div>
     </section>
   );

@@ -1,13 +1,11 @@
 import { motion } from "motion/react";
-import { Heart, Home, Plane, BookOpen, Coffee } from "lucide-react";
+import { Heart, Home, Plane, BookOpen, Coffee, Banknote, PiggyBankIcon, BanknoteArrowUpIcon } from "lucide-react";
 import { useState } from "react";
 
 const gifts = [
-  { icon: Home, title: "Home Together", description: "Help us furnish our first home — a place where mornings are slow and evenings are warm.", amount: "Any amount", bank: "NatWest · Sort: 60-40-12 · Acc: 31874522", label: "Nesting Fund" },
-  { icon: Plane, title: "Honeymoon Journey", description: "We dream of cobblestone streets, slow trains, and getting lost in a city neither of us has seen.", amount: "Any amount", bank: "NatWest · Sort: 60-40-12 · Acc: 31874521", label: "Adventure Fund" },
-  { icon: BookOpen, title: "Our Library", description: "Books are how we fell in love. Help us fill the shelves of our future home with stories.", amount: "Any amount", bank: "NatWest · Sort: 60-40-12 · Acc: 31874523", label: "Reading Nook" },
-  { icon: Coffee, title: "Sunday Mornings", description: "For all the coffee, fresh bread, and lazy Sunday mornings to come. The small things are everything.", amount: "Any amount", bank: "NatWest · Sort: 60-40-12 · Acc: 31874524", label: "Slow Living Fund" },
-];
+  { icon: Home, title: "Alamat Rumah",amount: "Any amount", bank: "Jl. trans Kalimantan, Desa Sungai Tuat RT. 03", label: "Rumah" },
+  { icon: BanknoteArrowUpIcon, title: "Transfer", amount: "Any amount", bank: "1590013275325", label: "Mandiri : Rulia Alda Firadila" },
+  ];
 
 export function DigitalGifts() {
   const [copied, setCopied] = useState<number | null>(null);

@@ -3,7 +3,6 @@ import { useState } from "react";
 import foto1 from "../../assets/1.jpeg"
 import foto2 from "../../assets/3.jpeg";
 import foto3 from "../../assets/4.jpeg";
-import foto4 from "../../assets/4.jpeg";
 
 
 const photos = [
@@ -90,7 +89,6 @@ export function PhotoGallery() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9 }}
         >
-          <p className="text-xs tracking-[0.4em] uppercase mb-3" style={{ fontFamily: "'Lato', sans-serif", color: "#9C8B6E" }}>moments we kept</p>
           <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 6vw, 4rem)", color: "#2C2318", fontWeight: 400 }}>Photo Album</h2>
           <div className="w-16 h-px mx-auto mt-6" style={{ background: "#9C8B6E" }} />
         </motion.div>

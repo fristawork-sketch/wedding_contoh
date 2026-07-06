@@ -17,7 +17,7 @@ const people = [
   {
     name: "Farid Sambara Saputra",
     description: "Putra kedua dari:",
-    description2: "Bpk Elia Benny & Ibu Vera Reno",
+    description2: "Bpk Elia Benny (✞) & Ibu Vera Reno",
     photo: fotoBara,
     rotate: "2deg",
   },
@@ -32,17 +32,9 @@ export function BrideGroom() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden" style={{ background: "#e79cbf96" }}>
+    <section className="py-24 px-6 relative overflow-hidden" style={{ background: "#E8DFD0" }}>
       {/* Lined paper texture */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 31px, #5C3D2E 31px, #5C3D2E 32px)" }} />
-            {/* Background Image */}
-      <div className="absolute inset-0 flex items-end justify-center pointer-events-none z-0">
-      <img
-      src={bg}
-      alt="Background"
-      className="w-[850px] h-[750px] object-contain opacity-15 translate-y-10"
-      />
-      </div>
+     
 
       <div className="max-w-5xl mx-auto">
         <motion.div

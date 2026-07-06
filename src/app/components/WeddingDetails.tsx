@@ -1,16 +1,16 @@
 import { motion } from "motion/react";
 
 const details = [
-  { label: "Pemenuhan Ukum Adat", value: "Jum'at, 10 Juli", sub: "Pukul 09:00 WIB", sub2: "Rumah Bapak Erlan, Desa Sungai Tuat Rt.03" },
-  { label: "Gereja", value: "Sabtu, 11 Juli", sub: "The Orchard Garden, East Wing" },
-  { label: "Resepsi", value: "Garden Romantique", sub: "Cream, sage, dusty rose & earth tones" },
+  { label: "Pemenuhan Hukum Adat", value: "Jum'at, 10 Juli", sub: "Pukul 09:00 WIB", sub2: "Kediaman Bpk.Erlan, Desa Sungai Tuat RT.03" },
+  { label: "Pemberkatan Nikah", value: "Sabtu, 11 Juli", sub: "Pukul 09:00-11:00WIB", sub2: "Gereja Katolik Santa Maria, Desa Tanjung Beringin"  },
+  { label: "Resepsi", value: "Garden Romantique", sub: "Pukul 11:00 WIB", sub2: "Kediaman Bpk.Khote/Ibu Sesilia, Desa Sungai Tuat RT.03"  },
 ];
 
 // 3 tanggal utama yang ditampilkan di kartu besar
 const dateCards = [
-  { caption: "pemenuhan ukum adat", day: "10", month: "JULI", year: "2026" },
-  { caption: "pemberkatan gereja", day: "11", month: "JULI", year: "2026" },
-  { caption: "resepsi", day: "11", month: "JULI", year: "2026" },
+  { caption: "Pemenuhan Hukum Adat", day: "10", month: "JULI", year: "2026" },
+  { caption: "Pemberkatan Nikah", day: "11", month: "JULI", year: "2026" },
+  { caption: "Resepsi", day: "11", month: "JULI", year: "2026" },
 ];
 
 export function WeddingDetails() {
