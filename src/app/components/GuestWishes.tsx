@@ -4,7 +4,6 @@ import {
   collection,
   addDoc,
   query,
-  orderBy,
   onSnapshot,
   serverTimestamp,
 } from "firebase/firestore";
@@ -27,14 +26,24 @@ export default function GuestWishes() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    const q = query(collection(db, "aldabara"), orderBy("date", "desc"));
+    const q = query(collection(db, "aldabara"));
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const data: Wish[] = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...(doc.data() as Omit<Wish, "id">),
       }));
-      setWishes(data);
+
+      // Urutkan di sisi client: terbaru di atas.
+      // Dokumen yang baru saja disubmit (date masih null karena
+      // menunggu konfirmasi server) dianggap paling baru.
+      const sorted = data.sort((a, b) => {
+        const timeA = a.date?.seconds ?? Infinity;
+        const timeB = b.date?.seconds ?? Infinity;
+        return timeB - timeA;
+      });
+
+      setWishes(sorted);
     });
 
     return () => unsubscribe();
