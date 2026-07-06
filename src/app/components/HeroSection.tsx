@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { Heart } from "lucide-react";
 
 declare module "*.png";
 
@@ -7,13 +8,40 @@ declare module "*.png";
 import kiri from "../../assets/kanan.png";
 import kanan from "../../assets/kiri.png";
 
+// 📛 Ambil nama tamu dari URL, contoh: https://domainmu.vercel.app/?to=Budi+Santoso
+function useGuestName() {
+  const [guestName, setGuestName] = useState("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const raw =
+      params.get("to") || params.get("nama") || params.get("name") || "";
+    if (raw) {
+      setGuestName(decodeURIComponent(raw.replace(/\+/g, " ")));
+    }
+  }, []);
+
+  return guestName;
+}
+
 export function HeroSection({ onOpen }: { onOpen: () => void }) {
   const [flicker, setFlicker] = useState(false);
+  const [closing, setClosing] = useState(false);
+  const guestName = useGuestName();
 
   useEffect(() => {
     const t = setTimeout(() => setFlicker(true), 2200);
     return () => clearTimeout(t);
   }, []);
+
+  // 🎬 Animasi "membuka" saat tombol ditekan, baru setelah itu pindah section
+  const handleOpen = () => {
+    if (closing) return;
+    setClosing(true);
+    setTimeout(() => {
+      onOpen();
+    }, 900);
+  };
 
   return (
     <section
@@ -122,6 +150,34 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
         />
       )}
 
+      {/* 🚪 Animasi "pintu terbuka" saat undangan dibuka */}
+      {closing && (
+        <>
+          <motion.div
+            className="absolute inset-y-0 left-0 w-1/2 pointer-events-none z-30"
+            style={{ background: "#F0E9D8" }}
+            initial={{ x: 0 }}
+            animate={{ x: "-100%" }}
+            transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+          />
+          <motion.div
+            className="absolute inset-y-0 right-0 w-1/2 pointer-events-none z-30"
+            style={{ background: "#F0E9D8" }}
+            initial={{ x: 0 }}
+            animate={{ x: "100%" }}
+            transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+          />
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center pointer-events-none z-40"
+            initial={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 0, scale: 1.3 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <Heart size={64} fill="#9C8B6E" stroke="#9C8B6E" />
+          </motion.div>
+        </>
+      )}
+
       {/* 💍 MAIN CONTENT */}
       <div className="relative z-20 flex flex-col items-center text-center px-4 sm:px-6 max-w-2xl w-full">
         <motion.p
@@ -214,8 +270,37 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
           11 Juli · 2026
         </motion.p>
 
+        {/* 💌 Kolom "Kepada Yth" — terpisah dari kolom nama tamu */}
+        <motion.div
+          className="mt-8 sm:mt-10 flex flex-col items-center"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.7 }}
+        >
+          <p
+            className="text-[11px] sm:text-xs uppercase tracking-widest mb-1"
+            style={{ fontFamily: "'Lato', sans-serif", color: "#7A6152" }}
+          >
+            Kepada Yth. Bapak/Ibu/Saudara/i
+          </p>
+
+          {/* 🖊️ Kolom nama tamu (terpisah, ambil dari link ?to=NamaTamu) */}
+          <p
+            className="text-lg sm:text-2xl px-4 py-1"
+            style={{
+              fontFamily: "'Dancing Script', cursive",
+              color: "#2C2318",
+              borderBottom: "1px solid #9C8B6E",
+              minWidth: "180px",
+            }}
+          >
+            {guestName || "Tamu Undangan"}
+          </p>
+        </motion.div>
+
         <motion.button
-          onClick={onOpen}
+          onClick={handleOpen}
+          disabled={closing}
           className="mt-10 sm:mt-12 px-8 sm:px-10 py-3 sm:py-4 border text-sm sm:text-base"
           style={{
             borderColor: "#9C8B6E",

@@ -114,7 +114,18 @@ export default function App() {
       <FloatingPapers />
       <Nav visible={navVisible} />
 
-      <HeroSection onOpen={() => setOpened(true)} />
+      {/* Hero section akan hilang (unmount) dengan animasi begitu undangan dibuka */}
+      <AnimatePresence>
+        {!opened && (
+          <motion.div
+            key="hero-section"
+            exit={{ opacity: 0, scale: 1.06, filter: "blur(8px)" }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <HeroSection onOpen={() => setOpened(true)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {opened && (

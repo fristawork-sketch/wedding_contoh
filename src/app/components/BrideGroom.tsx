@@ -16,7 +16,7 @@ const people = [
   {
     name: "Farid Sambara Saputra",
     description: "Putra kedua dari:",
-    description2: "Bpk Elia Benny (✞) & Ibu Vera Rano",
+    description2: "Bpk Elia Benny (✞) & Ibu Vera Reno",
     photo: fotoBara,
     rotate: "2deg",
   },
