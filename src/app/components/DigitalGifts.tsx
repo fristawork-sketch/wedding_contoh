@@ -67,9 +67,6 @@ export function DigitalGifts() {
                         {gift.label}
                       </span>
                     </div>
-                    <p style={{ fontFamily: "'EB Garamond', serif", fontSize: "0.98rem", color: "#7A6152", lineHeight: 1.75 }}>
-                      {gift.description}
-                    </p>
                     <div
                       className="mt-5 flex items-center justify-between p-3 cursor-pointer"
                       style={{ background: "#E8DFD0", border: "1px dashed #9C8B6E" }}
