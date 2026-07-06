@@ -9,7 +9,7 @@ import { EventSchedule } from "./components/EventSchedule";
 import { Location } from "./components/Location";
 import { PhotoGallery } from "./components/PhotoGallery";
 import { RSVPForm } from "./components/RSVPForm";
-import { GuestWishes } from "./components/GuestWishes";
+import GuestWishes from "./components/GuestWishes";
 import { DigitalGifts } from "./components/DigitalGifts";
 import { MusicPlayer } from "./components/music"; // ✅ MUSIC IMPORT
 import { Heart } from "lucide-react";

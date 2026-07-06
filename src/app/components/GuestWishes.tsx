@@ -1,130 +1,229 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import {
+  collection,
+  addDoc,
+  query,
+  orderBy,
+  onSnapshot,
+  serverTimestamp,
+} from "firebase/firestore";
+import { db } from "@/firebase";
 
-const initialWishes = [
-  { name: "Margaret & Thomas", date: "June 2025", message: "We have watched your love grow from a quiet spark into something warm and steady. May your life together be filled with laughter, grace, and the kind of peace that only comes from choosing each other, every single morning." },
-  { name: "Clara Ashford", date: "July 2025", message: "Elara, I've never seen you more yourself than when you're with Sebastian. And Sebastian — thank you for seeing her the way she deserves to be seen. You are both so loved." },
-  { name: "James Holt", date: "July 2025", message: "Little brother, you found the one. Mum would be so proud. Love her well, grow old together, argue about small things, and forgive quickly. That's the secret — and you already know it." },
-  { name: "Sofia & René", date: "August 2025", message: "We flew from Paris for this. That should say everything. To two people who remind us that real love is patient, honest, and worth fighting for. À votre bonheur." },
-];
+interface Wish {
+  id: string;
+  nama: string;
+  konfirmasi: string;
+  pesan: string;
+  date?: any;
+}
 
-export function GuestWishes() {
-  const [wishes, setWishes] = useState(initialWishes);
-  const [form, setForm] = useState({ name: "", message: "" });
-  const [added, setAdded] = useState(false);
+export default function GuestWishes() {
+  const [nama, setNama] = useState("");
+  const [konfirmasi, setKonfirmasi] = useState("");
+  const [pesan, setPesan] = useState("");
+  const [wishes, setWishes] = useState<Wish[]>([]);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function submit(e: React.FormEvent) {
+  useEffect(() => {
+    const q = query(collection(db, "aldabara"), orderBy("date", "desc"));
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const data: Wish[] = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...(doc.data() as Omit<Wish, "id">),
+      }));
+      setWishes(data);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const formatTanggal = (date: any) => {
+    if (!date) return "-";
+    return new Date(date.seconds * 1000).toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.message) return;
-    setWishes(w => [{ name: form.name, date: "October 2025", message: form.message }, ...w]);
-    setForm({ name: "", message: "" });
-    setAdded(true);
-    setTimeout(() => setAdded(false), 3000);
-  }
+
+    if (!nama.trim() || !konfirmasi.trim() || !pesan.trim()) {
+      alert("Mohon lengkapi semua data terlebih dahulu.");
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      await addDoc(collection(db, "aldabara"), {
+        nama,
+        konfirmasi,
+        pesan,
+        date: serverTimestamp(),
+      });
+
+      setNama("");
+      setKonfirmasi("");
+      setPesan("");
+
+      setShowSuccess(true);
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Gagal mengirim ucapan:", error);
+      alert("Terjadi kesalahan saat mengirim ucapan. Silakan coba lagi.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden" style={{ background: "#EDE5D4" }}>
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 31px, #5C3D2E 31px, #5C3D2E 32px)" }} />
-
-      <div className="max-w-4xl mx-auto">
+    <div
+      className="min-h-screen w-full py-16 px-4 sm:px-6 lg:px-8"
+      style={{ backgroundColor: "#EDE5D4" }}
+    >
+      <div className="max-w-2xl mx-auto">
+        {/* Header */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.9 }}
-        >
-          <p className="text-xs tracking-[0.4em] uppercase mb-3" style={{ fontFamily: "'Lato', sans-serif", color: "#9C8B6E" }}>letters from those we love</p>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 6vw, 4rem)", color: "#2C2318", fontWeight: 400 }}>
-            Guest Wishes
-          </h2>
-          <div className="w-16 h-px mx-auto mt-6" style={{ background: "#9C8B6E" }} />
-        </motion.div>
-
-        {/* Write a wish form */}
-        <motion.div
-          className="mb-16 p-8 relative"
-          style={{ background: "#F8F3E8", borderLeft: "3px solid #9C8B6E" }}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10"
         >
-          <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 27px, #5C3D2E 27px, #5C3D2E 28px)" }} />
-          <p style={{ fontFamily: "'Dancing Script', cursive", fontSize: "1.4rem", color: "#9C8B6E", marginBottom: "1.5rem" }}>
-            Write us a letter —
+          <h1 className="text-3xl sm:text-4xl font-serif tracking-wide text-neutral-800 mb-3">
+            Guest Wishes
+          </h1>
+          <p className="text-neutral-600 text-sm sm:text-base italic">
+            Leave your wishes and prayers for the bride and groom.
           </p>
-          <form onSubmit={submit} className="space-y-6 relative">
-            <div>
-              <label className="text-xs tracking-widest uppercase block mb-1" style={{ fontFamily: "'Lato', sans-serif", color: "#9C8B6E" }}>Your Name</label>
-              <input
-                value={form.name}
-                onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                required
-                style={{ width: "100%", background: "transparent", border: "none", borderBottom: "1px solid #9C8B6E", padding: "0.4rem 0", fontFamily: "'EB Garamond', serif", fontSize: "1.05rem", color: "#2C2318", outline: "none" }}
-              />
-            </div>
-            <div>
-              <label className="text-xs tracking-widest uppercase block mb-1" style={{ fontFamily: "'Lato', sans-serif", color: "#9C8B6E" }}>Your Message</label>
-              <textarea
-                value={form.message}
-                onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                required
-                rows={4}
-                style={{ width: "100%", background: "transparent", border: "none", borderBottom: "1px solid #9C8B6E", padding: "0.4rem 0", fontFamily: "'EB Garamond', serif", fontSize: "1.05rem", color: "#2C2318", outline: "none", resize: "none" }}
-              />
-            </div>
-            <div className="flex items-center gap-6">
-              <motion.button
-                type="submit"
-                className="px-8 py-3 border tracking-widest text-xs uppercase"
-                style={{ borderColor: "#5C3D2E", color: "#5C3D2E", fontFamily: "'Lato', sans-serif", letterSpacing: "0.2em", background: "transparent" }}
-                whileHover={{ background: "#5C3D2E", color: "#F4EFE4" }}
-                transition={{ duration: 0.25 }}
-              >
-                Leave a wish
-              </motion.button>
-              <AnimatePresence>
-                {added && (
-                  <motion.span
-                    style={{ fontFamily: "'Dancing Script', cursive", color: "#9C8B6E", fontSize: "1.1rem" }}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    Your letter has been received ♡
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </div>
-          </form>
         </motion.div>
 
-        {/* Wishes list */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {wishes.map((wish, i) => (
-            <motion.div
-              key={i}
-              className="p-7 relative"
-              style={{ background: "#F8F3E8", boxShadow: "0 2px 12px rgba(44,35,24,0.08)" }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.7, delay: i * 0.08 }}
+        {/* Form */}
+        <motion.form
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="rounded-2xl shadow-md p-6 sm:p-8 mb-10 space-y-5"
+          style={{ backgroundColor: "#F8F3E8" }}
+        >
+          <div>
+            <label className="block text-sm font-medium text-neutral-700 mb-2">
+              Nama
+            </label>
+            <input
+              type="text"
+              value={nama}
+              onChange={(e) => setNama(e.target.value)}
+              placeholder="Masukkan nama Anda"
+              className="w-full rounded-lg border border-neutral-300 bg-white/70 px-4 py-2.5 text-sm text-neutral-800 outline-none focus:ring-2 focus:ring-neutral-400 transition"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-neutral-700 mb-2">
+              Konfirmasi Kehadiran
+            </label>
+            <select
+              value={konfirmasi}
+              onChange={(e) => setKonfirmasi(e.target.value)}
+              className="w-full rounded-lg border border-neutral-300 bg-white/70 px-4 py-2.5 text-sm text-neutral-800 outline-none focus:ring-2 focus:ring-neutral-400 transition"
             >
-              <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 25px, #5C3D2E 25px, #5C3D2E 26px)" }} />
-              <div className="relative">
-                <div className="mb-3" style={{ fontFamily: "'Dancing Script', cursive", fontSize: "1.5rem", color: "#C8B89A" }}>"</div>
-                <p style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.02rem", color: "#5C3D2E", lineHeight: 1.85 }}>{wish.message}</p>
-                <div className="mt-5 flex items-center justify-between">
-                  <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "0.95rem", color: "#2C2318", fontStyle: "italic" }}>— {wish.name}</p>
-                  <p className="text-xs" style={{ fontFamily: "'Lato', sans-serif", color: "#9C8B6E" }}>{wish.date}</p>
+              <option value="">Pilih Kehadiran</option>
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Tidak Hadir</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-neutral-700 mb-2">
+              Ucapan
+            </label>
+            <textarea
+              value={pesan}
+              onChange={(e) => setPesan(e.target.value)}
+              placeholder="Tuliskan ucapan dan doa Anda..."
+              rows={4}
+              className="w-full rounded-lg border border-neutral-300 bg-white/70 px-4 py-2.5 text-sm text-neutral-800 outline-none focus:ring-2 focus:ring-neutral-400 transition resize-none"
+            />
+          </div>
+
+          <motion.button
+            type="submit"
+            disabled={isSubmitting}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="w-full rounded-lg bg-neutral-800 text-white py-3 text-sm font-medium tracking-wide transition disabled:opacity-60"
+          >
+            {isSubmitting ? "Mengirim..." : "Kirim Ucapan"}
+          </motion.button>
+
+          <AnimatePresence>
+            {showSuccess && (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4 }}
+                className="text-center text-sm text-neutral-700 font-medium"
+              >
+                Ucapan berhasil dikirim ❤️
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </motion.form>
+
+        {/* List of Wishes */}
+        <div className="space-y-4">
+          <AnimatePresence>
+            {wishes.map((wish, index) => (
+              <motion.div
+                key={wish.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4, delay: index * 0.03 }}
+                className="rounded-2xl shadow-sm p-5 sm:p-6"
+                style={{ backgroundColor: "#F8F3E8" }}
+              >
+                <div className="flex items-center justify-between mb-2 flex-wrap gap-2">
+                  <h3 className="font-semibold text-neutral-800">
+                    {wish.nama}
+                  </h3>
+                  <span
+                    className={`text-xs px-3 py-1 rounded-full font-medium ${
+                      wish.konfirmasi === "Hadir"
+                        ? "bg-green-100 text-green-700"
+                        : "bg-red-100 text-red-700"
+                    }`}
+                  >
+                    {wish.konfirmasi === "Hadir" ? "Hadir" : "Tidak Hadir"}
+                  </span>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                <p className="text-neutral-700 text-sm leading-relaxed mb-3">
+                  {wish.pesan}
+                </p>
+                <p className="text-xs text-neutral-500 italic">
+                  {formatTanggal(wish.date)}
+                </p>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+
+          {wishes.length === 0 && (
+            <p className="text-center text-neutral-500 text-sm italic py-6">
+              Belum ada ucapan. Jadilah yang pertama mengirim ucapan!
+            </p>
+          )}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
