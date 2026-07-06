@@ -3,26 +3,23 @@ import { useInView } from "motion/react";
 import { useRef } from "react";
 
 import fotoAlda from "../../assets/alda.jpeg";
+import fotoBara from "../../assets/bara.jpeg";
 import bg from "../../assets/bg.png";
 
 const people = [
   {
-    name: "Rulia Alda Firadila",
-    role: "The Bride",
+    name: "Rulia Alda Firadila,S.P",
     description: "Anak Pertama Dari ",
-    description2: "Bpk Rubi Setiawan & Ibu Liana.",
+    description2: "Bpk Rubi Setiawan Bromen & Ibu Liana.",
     photo: fotoAlda,
     rotate: "-2deg",
-    tag: "the bride",
   },
   {
-    name: "BARA",
-    role: "The Groom",
-    description: "Anak Kedua Dari:",
-    description2: "Bpk .. & ...",
-    photo: "https://images.unsplash.com/photo-1681176092314-aff3e74a41bb?w=600&h=800&fit=crop&auto=format",
+    name: "Farid Sambara Saputra",
+    description: "Putra kedua dari:",
+    description2: "Bpk Elia Benny & Ibu Vera Reno",
+    photo: fotoBara,
     rotate: "2deg",
-    tag: "the groom",
   },
 ];
 
@@ -35,7 +32,7 @@ export function BrideGroom() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden" style={{ background: "#E8DFD0" }}>
+    <section className="py-24 px-6 relative overflow-hidden" style={{ background: "#e79cbf96" }}>
       {/* Lined paper texture */}
       <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 31px, #5C3D2E 31px, #5C3D2E 32px)" }} />
             {/* Background Image */}
@@ -72,7 +69,7 @@ export function BrideGroom() {
               {/* Polaroid frame */}
               <motion.div
                 className="relative mb-8 p-4 pb-14"
-                style={{ background: "#F8F3E8", boxShadow: "0 8px 32px rgba(44,35,24,0.18), 0 2px 8px rgba(44,35,24,0.10)", transform: `rotate(${person.rotate})` }}
+                style={{ background: "#503d30", boxShadow: "0 8px 32px rgba(44,35,24,0.18), 0 2px 8px rgba(44,35,24,0.10)", transform: `rotate(${person.rotate})` }}
                 whileHover={{ rotate: "0deg", scale: 1.02, transition: { duration: 0.4 } }}
               >
                 <div className="w-72 h-96 overflow-hidden" style={{ background: "#C8B89A" }}>
@@ -84,7 +81,7 @@ export function BrideGroom() {
                   />
                 </div>
                 <div className="absolute bottom-4 left-0 right-0 text-center">
-                  <span style={{ fontFamily: "'Dancing Script', cursive", fontSize: "1.1rem", color: "#7A6152" }}>{person.tag}</span>
+                  <span style={{ fontFamily: "'Dancing Script', cursive", fontSize: "1.1rem", color: "#7A6152" }}></span>
                 </div>
                 {/* Film grain overlay on photo */}
                 <div className="absolute inset-4 bottom-14 pointer-events-none opacity-20" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\")" }} />
@@ -96,7 +93,6 @@ export function BrideGroom() {
                 {person.name}
               </h3>
               <p className="text-xs tracking-widest uppercase mt-1 mb-5" style={{ fontFamily: "'Lato', sans-serif", color: "#9C8B6E" }}>
-                {person.role}
               </p>
               <p
                 className="text-center max-w-xs"

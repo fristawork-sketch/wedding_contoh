@@ -8,7 +8,6 @@ import { Countdown } from "./components/Countdown";
 import { EventSchedule } from "./components/EventSchedule";
 import { Location } from "./components/Location";
 import { PhotoGallery } from "./components/PhotoGallery";
-import { RSVPForm } from "./components/RSVPForm";
 import GuestWishes from "./components/GuestWishes";
 import { DigitalGifts } from "./components/DigitalGifts";
 import { MusicPlayer } from "./components/music"; // ✅ MUSIC IMPORT
@@ -132,7 +131,6 @@ export default function App() {
               <Countdown />
             </div>
             <Location />
-            <div id="rsvp"><RSVPForm /></div>
             <GuestWishes />
             <DigitalGifts />.
 
