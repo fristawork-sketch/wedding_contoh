@@ -20,7 +20,7 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
-  base: '/wedding_contoh/',
+  base: '/',
 
   plugins: [
     figmaAssetResolver(),
