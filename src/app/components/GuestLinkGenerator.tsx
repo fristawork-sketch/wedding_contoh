@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const DOMAIN = "https://aldabara-ten.vercel.app";
+const DOMAIN = "https://aldabarawedding.vercel.app/";
 
 function slugify(name: string) {
   return encodeURIComponent(name.trim()).replace(/%20/g, "+");
