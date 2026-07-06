@@ -3,7 +3,7 @@ import { useInView } from "motion/react";
 import { useRef } from "react";
 
 import fotoAlda from "../../assets/alda.jpeg";
-import fotoBara from "../../assets/bara.jpeg";
+import fotoBara from "../../assets/bara.JPEG";
 
 const people = [
   {
