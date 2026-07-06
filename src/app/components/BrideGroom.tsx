@@ -10,8 +10,7 @@ const people = [
     name: "Rulia Alda Firadila",
     role: "The Bride",
     description: "Anak Pertama Dari ",
-    description2:"Bpk Rubi Setiawan & Ibu Liana.",
-    quote: "Untuk segala versi diri yang pernah ada dan yang akan datang, kami memilih untuk tetap saling menggenggam. Dengan penuh cinta, kami mengundang Anda untuk merayakan awal kisah kami",
+    description2: "Bpk Rubi Setiawan & Ibu Liana.",
     photo: fotoAlda,
     rotate: "-2deg",
     tag: "the bride",
@@ -21,12 +20,15 @@ const people = [
     role: "The Groom",
     description: "Anak Kedua Dari:",
     description2: "Bpk .. & ...",
-    quote: "Home was never a place — until I found her.",
     photo: "https://images.unsplash.com/photo-1681176092314-aff3e74a41bb?w=600&h=800&fit=crop&auto=format",
     rotate: "2deg",
     tag: "the groom",
   },
 ];
+
+// Satu quote gabungan untuk kedua mempelai
+const sharedQuote =
+  "Untuk segala versi diri yang pernah ada dan yang akan datang, kami memilih untuk tetap saling menggenggam. Dengan penuh cinta, kami mengundang Anda untuk merayakan awal kisah kami.";
 
 export function BrideGroom() {
   const ref = useRef(null);
@@ -102,21 +104,27 @@ export function BrideGroom() {
               >
                 {person.description}
               </p>
-                            <p
+              <p
                 className="text-center max-w-xs"
                 style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.05rem", color: "#5C3D2E", lineHeight: 1.85 }}
               >
                 {person.description2}
               </p>
-              <blockquote
-                className="mt-6 text-center italic"
-                style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.25rem", color: "#9C8B6E" }}
-              >
-                "{person.quote}"
-              </blockquote>
             </motion.div>
           ))}
         </div>
+
+        {/* Satu quote tunggal di tengah, untuk keduanya */}
+        <motion.blockquote
+          className="mt-20 text-center italic max-w-xl mx-auto px-4"
+          style={{ fontFamily: "'EB Garamond', serif", fontSize: "1.25rem", color: "#9C8B6E", lineHeight: 1.8 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.9, delay: 0.3 }}
+        >
+          "{sharedQuote}"
+        </motion.blockquote>
       </div>
     </section>
   );
