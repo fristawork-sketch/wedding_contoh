@@ -2,9 +2,8 @@ import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
 
-import fotoAlda from "../../assets/alda.jpeg";
-import fotoBara from "../../assets/bara.jpeg";
-import bg from "../../assets/bg.png";
+import fotoAlda from "../../assets/alda.JPEG";
+import fotoBara from "../../assets/bara.JPEG";
 
 const people = [
   {
