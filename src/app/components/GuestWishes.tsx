@@ -106,11 +106,16 @@ export default function GuestWishes() {
           className="text-center mb-10"
         >
           <h1 className="text-3xl sm:text-4xl font-serif tracking-wide text-neutral-800 mb-3">
-            Guest Wishes
+            Ucapan dan Doa
           </h1>
           <p className="text-neutral-600 text-sm sm:text-base italic">
-            Leave your wishes and prayers for the bride and groom.
+            Tulis Ucapan anda untuk Alda & Bara di bawah ini. 
           </p>
+          <p className="text-neutral-600 text-sm sm:text-base italic">
+              Kami sangat menghargai setiap doa dan ucapan yang diberikan.
+          </p>
+
+
         </motion.div>
 
         {/* Form */}

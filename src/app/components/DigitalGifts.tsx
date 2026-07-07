@@ -7,6 +7,36 @@ const gifts = [
   { icon: BanknoteArrowUpIcon, title: "Transfer", amount: "Any amount", bank: "1590013275325", label: "Mandiri : Rulia Alda Firadila" },
   ];
 
+const undangan = [
+  "Bpk. Drs. Saptono, M.A.P",
+  "Bpk. Dr. Rizky Aditya Putra, S.E., Μ.Μ",
+  "Bpk. Dr. Ir. Marukan, M.A.P",
+  "Ibu. Sesilia, S.Pd (Khote)",
+  "Bpk. FX Perwiragato, S.I.P",
+  "Bpk. Jakarianto, S.Pd",
+  "Bpk. Erlan, M.Pd",
+  "Bpk. Botshe, S.Sos",
+  "Bpk. W. Marthin, S.Pd",
+  "Bpk. Yusup Bari",
+  "Bpk. Ating",
+  "Bpk. Efran Bromen, S.Pd",
+  "Bpk. lid Rano",
+  "Bpk. Yosep Geligo",
+  "Bpk. Ethye Jen Roy, S.P",
+  "Bpk. Yudocun S.A.P., M.Si",
+  "Bpk. Emban, S.I.P",
+  "Bpk. Muhammad Husain",
+  "Bpk. Jumadin",
+];
+
+function chunk<T>(arr: T[], size: number): T[][] {
+  const result: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
+  }
+  return result;
+}
+
 export function DigitalGifts() {
   const [copied, setCopied] = useState<number | null>(null);
 
@@ -15,6 +45,8 @@ export function DigitalGifts() {
     setCopied(i);
     setTimeout(() => setCopied(null), 2000);
   }
+
+  const undanganRows = chunk(undangan, 3);
 
   return (
     <section className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #DDD0BA 0%, #D0C3AD 100%)" }}>
@@ -84,6 +116,46 @@ export function DigitalGifts() {
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Turut Mengundang */}
+        <motion.div
+          className="text-center mt-20 mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.9 }}
+        >
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 5vw, 3rem)", color: "#2C2318", fontWeight: 400 }}>
+            Turut Mengundang
+          </h2>
+          <div className="w-16 h-px mx-auto mt-6" style={{ background: "#9C8B6E" }} />
+        </motion.div>
+
+        <div className="flex flex-col items-center gap-3 w-full max-w-2xl mx-auto">
+          {undanganRows.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              className="grid grid-cols-3 gap-x-3 gap-y-3 w-full justify-items-center"
+            >
+              {row.map((name, i) => (
+                <span
+                  key={i}
+                  className="text-center"
+                  style={{
+                    fontFamily: "'Lato', sans-serif",
+                    fontSize: "clamp(0.6rem, 2.8vw, 0.95rem)",
+                    color: "#4A3F33",
+                    letterSpacing: "0.02em",
+                    lineHeight: 1.4,
+                    wordBreak: "keep-all",
+                  }}
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
 
       </div>
