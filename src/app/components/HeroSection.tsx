@@ -5,8 +5,7 @@ import { Heart } from "lucide-react";
 declare module "*.png";
 
 // 🟢 IMAGE JPEG ASSETS
-import kiri from "../../assets/kanan.png";
-import kanan from "../../assets/kiri.png";
+
 
 // 📛 Ambil nama tamu dari URL, contoh: https://domainmu.vercel.app/?to=Budi+Santoso
 function useGuestName() {
@@ -63,93 +62,6 @@ export function HeroSection({ onOpen }: { onOpen: () => void }) {
           opacity: 0.4,
         }}
       />
-
-      {/* LEFT — kini tampil & menyesuaikan di semua ukuran layar */}
-      <motion.div
-        initial={{ opacity: 0, x: -60 }}
-        animate={{ opacity: 0.9, x: 0 }}
-        whileHover={{ opacity: 1, scale: 1.03 }}
-        transition={{ delay: 0.6, duration: 1.2 }}
-        className="
-          flex
-          absolute
-          left-0
-          bottom-0
-          items-end
-          h-[38vh] sm:h-[55vh] md:h-[80vh] lg:h-[100vh]
-          w-[26vw] sm:w-[24vw] md:w-[26vw] lg:w-[30vw]
-          z-10
-          pointer-events-none
-        "
-      >
-        <img
-          src={kiri}
-          alt="foto kiri"
-          className="h-full w-auto max-w-full object-contain"
-        />
-      </motion.div>
-
-      {/* RIGHT — kini tampil & menyesuaikan di semua ukuran layar */}
-      <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 0.9, x: 0 }}
-        whileHover={{ opacity: 1, scale: 1.03 }}
-        transition={{ delay: 0.6, duration: 1.2 }}
-        className="
-          flex
-          absolute
-          right-0
-          bottom-0
-          items-end
-          justify-end
-          h-[38vh] sm:h-[55vh] md:h-[80vh] lg:h-[100vh]
-          w-[26vw] sm:w-[24vw] md:w-[26vw] lg:w-[30vw]
-          z-10
-          pointer-events-none
-        "
-      >
-        <img
-          src={kanan}
-          alt="foto kanan"
-          className="h-full w-auto max-w-full object-contain"
-        />
-      </motion.div>
-
-      {/* 🎞️ Film strip atas */}
-      <div className="absolute top-0 left-0 right-0 h-6 sm:h-8 flex gap-0 opacity-20">
-        {Array.from({ length: 30 }).map((_, i) => (
-          <div
-            key={i}
-            className="h-full flex-1 border-r border-foreground/30 flex flex-col justify-between py-1"
-          >
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-foreground/40 mx-auto rounded-sm" />
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-foreground/40 mx-auto rounded-sm" />
-          </div>
-        ))}
-      </div>
-
-      {/* ✉️ Envelope overlay */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{ delay: 1.5, duration: 1.2 }}
-      >
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <polygon points="0,0 100,0 50,55" fill="#C8B89A" opacity="0.35" />
-        </svg>
-      </motion.div>
-
-      {/* ⚡ Flash effect */}
-      {flicker && (
-        <motion.div
-          className="absolute inset-0 bg-white pointer-events-none z-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.85, 0] }}
-          transition={{ duration: 0.4, times: [0, 0.3, 1] }}
-        />
-      )}
-
       {/* 🚪 Animasi "pintu terbuka" saat undangan dibuka */}
       {closing && (
         <>
