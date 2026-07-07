@@ -15,7 +15,7 @@ function buildMessage(guestName: string, link: string) {
 Kepada Yth. Bapak/Ibu/Saudara/i
 ${guestName}
 
-Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:
+Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:
 
 ${COUPLE_NAME}
 
