@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 const details = [
   { label: "Pemenuhan Hukum Adat", value: "Jum'at, 10 Juli", sub: "Pukul 09:00 WIB", sub2: "Kediaman Bpk.Erlan, Desa Sungai Tuat RT.03" },
   { label: "Pemberkatan Nikah", value: "Sabtu, 11 Juli", sub: "Pukul 09:00-11:00WIB", sub2: "Gereja Katolik Santa Maria, Desa Tanjung Beringin"  },
-  { label: "Resepsi", value: "Garden Romantique", sub: "Pukul 11:00 WIB", sub2: "Kediaman Bpk.Khote/Ibu Sesilia, Desa Sungai Tuat RT.03"  },
+  { label: "Resepsi", value: "Sabtu, 11 Juli", sub: "Pukul 11:00 WIB", sub2: "Kediaman Bpk.Khote/Ibu Sesilia, Desa Sungai Tuat RT.03"  },
 ];
 
 // 3 tanggal utama yang ditampilkan di kartu besar
