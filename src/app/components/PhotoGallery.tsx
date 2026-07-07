@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { useState } from "react";
-import foto1 from "../../assets/1.JPEG"
-import foto2 from "../../assets/3.JPEG";
-import foto3 from "../../assets/4.JPEG";
+import foto1 from "../../assets/3.jpg"
+import foto2 from "../../assets/2.jpg";
+import foto3 from "../../assets/1.jpg";
 
 
 const photos = [

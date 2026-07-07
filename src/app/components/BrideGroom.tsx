@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
+import { Instagram } from "lucide-react";
 
-import fotoAlda from "../../assets/alda.jpeg";
-import fotoBara from "../../assets/bara.JPEG";
+import fotoAlda from "../../assets/alda.jpg";
+import fotoBara from "../../assets/bara.jpg";
 
 const people = [
   {
@@ -12,6 +13,7 @@ const people = [
     description2: "Bpk Rubi Setiawan Bromen & Ibu Liana.",
     photo: fotoAlda,
     rotate: "-2deg",
+    instagram: "https://www.instagram.com/rullyaa.__?igsh=NTJyOWVqcTUxZGFk",
   },
   {
     name: "Farid Sambara Saputra",
@@ -19,6 +21,7 @@ const people = [
     description2: "Bpk Elia Benny (✞) & Ibu Vera Rano",
     photo: fotoBara,
     rotate: "2deg",
+    instagram: " https://www.instagram.com/faridsaputraaaa?igsh=MXQ1eDg5bHc2eHVyOA==",
   },
 ];
 
@@ -104,6 +107,18 @@ export function BrideGroom() {
               >
                 {person.description2}
               </p>
+
+              {/* Link Instagram */}
+              <a
+                href={person.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-2 px-4 py-2 border text-xs tracking-widest uppercase"
+                style={{ borderColor: "#9C8B6E", color: "#5C3D2E", fontFamily: "'Lato', sans-serif", letterSpacing: "0.15em" }}
+              >
+                <Instagram size={14} />
+                Instagram
+              </a>
             </motion.div>
           ))}
         </div>
